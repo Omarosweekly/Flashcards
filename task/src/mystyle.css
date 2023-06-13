@@ -1,0 +1,77 @@
+body {
+    /*background:#00afd7;*/
+    margin: 20px;
+    align-content: center;
+}
+
+.tabletop {
+    background: #00afd7;
+    border-radius: 25px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding:20px;
+}
+
+h1 {
+    background: darkgrey;
+    border: solid #000;
+    border-radius: 25px;
+    font-family: Cambria, "cursive";
+    font-size: 4vw;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    width: auto;
+    margin:0 ;
+}
+
+.cards {
+    aspect-ratio: 1/1;
+    position: relative;
+    perspective: 1000px;
+    font-size: 3vw;
+    margin: 0;
+}
+
+.cards:hover .paper{transform: rotateY(180deg);}
+
+.country, .city {
+    align-items: center;
+    border-radius: 15px;
+    display: flex;
+    position: absolute;
+    font-family: "Javanese Text", sans-serif;
+    justify-content: center;
+    height: 95%;
+    width: 95%;
+    text-align: center;
+}
+
+.paper{
+    background-color: black;
+    border-radius: 15px;
+    margin: 5px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 2s ease;
+    z-index: 2;
+}
+ /* #009a44 green #fedd00 yellow #ef3340 red (blue for Etiopia #00afd7*/
+
+.country    {background: linear-gradient(#009a44, #ef3340)  ; backface-visibility: hidden; transform: translate(2.5%,2.5%); z-index: 3;}
+p.land      {background-color: yellow; font-size: 1em; margin:0; padding: 5px; width: 100%;}
+
+.city   {background: linear-gradient(#ef3340,#009a44); transform: rotateY(180deg) translate(-2.5%,2.5%); z-index: 1;}
+p.town  {background-color: yellow; font-size: 1em; margin: 0; padding: 5px; width: 100%;}
+
+/* This makes the containers stick to each other*/
+.paper.flipped .country{backface-visibility: hidden; transform: rotateY(0deg)}
+.paper.flipped .city{transform: rotateY(180deg)}
